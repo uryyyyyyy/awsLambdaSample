@@ -2,11 +2,18 @@ name := """awsLambdaSample"""
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+lazy val commonSettings = Seq(
+	organization := "com.github.uryyyyyyy",
+	scalaVersion := "2.11.7",
+	libraryDependencies ++= Seq(
+		"com.amazonaws" % "aws-lambda-java-core" % "1.1.0" % "provided",
+		"com.amazonaws" % "aws-lambda-java-events" % "1.1.0" % "provided",
+		"org.scalatest" %% "scalatest" % "3.0.0-M15" % "test"
+	)
+)
 
-// Change this to another test framework if you prefer
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+lazy val java_helloWorld = (project in file("java_helloWorld")).
+	settings(commonSettings: _*)
 
-// Uncomment to use Akka
-//libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.11"
-
+lazy val scala_helloWorld = (project in file("scala_helloWorld")).
+	settings(commonSettings: _*)
