@@ -6,8 +6,6 @@ import scala.collection.JavaConversions._
 
 object Hello {
 
-  val log = Logger.getLogger(Hello.class)
-
   def main(args: Array[String]): Unit = {
     println("Hello, world!")
   }
